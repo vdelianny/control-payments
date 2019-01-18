@@ -1,0 +1,26 @@
+<div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Nombre</th>
+				<th scope="col">Apellido</th>
+				<th scope="col">Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each students}}
+				<tr>
+					<td>{{name}}</td>
+					<td>{{surname}}</td>
+					<td>
+						<a href="/students/details/{{_id}}"><i class="far fa-user"></i></a>
+					</td>
+				</tr>
+			{{else}}
+				<tr>
+					<td>No hay registros</td>
+				</tr>
+		</tbody>
+		{{/each}}
+	</table>
+</div>

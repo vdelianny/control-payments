@@ -1,0 +1,36 @@
+<div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Grado</th>
+				<th scope="col">Sección</th>
+				<th scope="col">Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each sections}}
+				<tr>
+					<td>{{grade.number}}°</td>
+					<td>{{name}}</td>
+					<td>
+						<a href="/sections/details/{{_id}}"><i class="far fa-user"></i></a>
+						<a href="/sections/edit/{{_id}}"><i class="far fa-edit"></i></a>
+						<form action="/sections/delete/{{_id}}?_method=DELETE" method="POST" style="display: inline;">
+							<input type="hidden" name="_method" value="DELETE">
+							<button type="submit">
+								<i class="far fa-trash-alt"></i>
+							</button>
+						</form>
+					</td>
+				</tr>
+			{{else}}
+				<tr>
+					<td>
+						<p class="lead">No hay secciones para mostrar</p>
+						<a href="/sections/new-section" class="btn btn-success btn-block">Nueva seccion</a>
+					</td>
+				</tr>
+		</tbody>
+		{{/each}}
+	</table>
+</div>

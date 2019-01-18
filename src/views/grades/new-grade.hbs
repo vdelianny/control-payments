@@ -1,0 +1,25 @@
+<div class="col-md-4 mx-auto">
+	<div class="card">
+		<div class="card-header">
+			<h3>New grade</h3>
+		</div>
+		<div class="card-body">
+			<form action="/grades/new-grade" method="POST">
+				<div class="form-group">
+					<label for="gradeSelect">Grade</label>
+				    <select class="custom-select" name="number" id="gradeSelect">
+						<option value="1" selected>1°</option>
+				    	<option value="2">2°</option>
+				    	<option value="3">3°</option>
+				    	<option value="4">4°</option>
+				    	<option value="5">5°</option>
+				    	<option value="6">6°</option>
+				    </select>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-primary btn-block" type="submit">Save</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

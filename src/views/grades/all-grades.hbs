@@ -1,0 +1,27 @@
+<div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Grado</th>
+				<th scope="col">Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each grades}}
+				<tr>
+					<td>{{number}}°</td>
+					<td>
+						<a href="/grades/details/{{_id}}"><i class="far fa-eye"></i></a>
+					</td>
+				</tr>
+			{{else}}
+				<tr>
+					<td>
+						<p class="lead">No hay secciones para mostrar</p>
+						<a href="/grades/new-grade" class="btn btn-success btn-block">Nuevo grado</a>
+					</td>
+				</tr>
+		</tbody>
+		{{/each}}
+	</table>
+</div>
