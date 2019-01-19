@@ -5,7 +5,7 @@ const Student = require('../models/Student');
 const Grade = require('../models/Grade');
 
 /*
-	Hay que mandar las secciones por grado.
+	Hay que mandar las secciones por grado (depende del formato de la escuela).
 */
 
 //routes get
@@ -21,17 +21,15 @@ router.get('/students/details/:id', async (req, res) => {
 
 
 //routes post
-
 router.post('/students/new-student', async (req, res) => {
 	const { name, surname, parent } = req.body;
 	const grade = await Grade.findOne({number: req.body.grade});
 	const section = await Section.findOne({ name: req.body.section, grade: grade._id });
-
+	//falta validar que exista el grado/sección
 	const newStudent = new Student({ name, surname, parent, section: section._id });
 	await newStudent.save();
 	req.flash('success_msg', 'estudiante agregada satisfactoriamente');
 	res.redirect('/sections');
-	console.log(newStudent);
 });
 
 

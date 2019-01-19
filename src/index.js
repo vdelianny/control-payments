@@ -46,6 +46,7 @@ app.use(require('./routes/index'));
 app.use(require('./routes/grades'));
 app.use(require('./routes/sections'));
 app.use(require('./routes/students'));
+app.use(require('./routes/payments'));
 
 
 //static files
