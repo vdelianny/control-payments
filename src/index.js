@@ -7,6 +7,7 @@ const flash = require('connect-flash');
 
 //initializations
 const app = express();
+const config = require('./config/months');
 require('./database');
 
 

@@ -3,6 +3,7 @@ const router = express.Router();
 const Section = require('../models/Section');
 const Student = require('../models/Student');
 const Grade = require('../models/Grade');
+const Payment = require('../models/Payment');
 
 /*
 	Hay que mandar las secciones por grado (depende del formato de la escuela).
@@ -16,7 +17,9 @@ router.get('/students/new-student', async (req, res) => {
 
 router.get('/students/details/:id', async (req, res) => {
 	const student = await Student.findById(req.params.id);
-	res.render('students/details-student', {student});
+	const payments = await Payment.find({student: req.params.id});
+	console.log(payments);
+	res.render('students/details-student', {student, payments});
 });
 
 
