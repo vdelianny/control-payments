@@ -3,6 +3,7 @@ const router = express.Router();
 const Section = require('../models/Section');
 const Student = require('../models/Student');
 const Grade = require('../models/Grade');
+const Payment = require('../models/Payment');
 
 
 //routes get
@@ -25,7 +26,21 @@ router.get('/sections/edit/:id', async (req, res) => {
 
 router.get('/sections/details/:id', async (req, res) => {
 	const students = await Student.find({ section: req.params.id }).sort({date: 'desc'});
-	res.render('sections/details-section', {students});
+	const payments = await Payment.find({ student: { $in: students } });
+	res.render('sections/details-section', {payments, students});
+});
+
+//estudiantes deudores de una sección
+/*
+router.get('/sections/pending/:id', async (req, res) => {
+	var d = new Date().getMonth();
+});
+*/
+
+router.get('/sections/edit/:id', async (req, res) => {
+	const grades = await Grade.find().sort({number: 1});
+	const section = await Section.findById(req.params.id);
+	res.render('sections/edit-section', {grades, section});
 });
 
 

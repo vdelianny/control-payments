@@ -1,4 +1,4 @@
-const foo = function (month) {
+const monthMatch = function (month) {
 	const monthsName = [
 		'Enero',
 		'Febrero',
@@ -16,4 +16,4 @@ const foo = function (month) {
     return monthsName[month - 1];
 }
 
-module.exports = foo;
+module.exports = monthMatch;

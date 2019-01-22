@@ -4,7 +4,8 @@ const exphbs = require('express-handlebars');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const flash = require('connect-flash');
-const monthMatch = require('./public/js/monthMatch.js')
+const monthMatch = require('./public/js/monthMatch.js');
+const paymentsMatch = require('./public/js/paymentsMatch.js');
 
 //initializations
 const app = express();
@@ -18,7 +19,10 @@ app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs', exphbs({
 	defaultLayout: 'main',
 	layoutsDir: path.join(app.get('views'), 'layouts'),
-	helpers: { monthMatch: monthMatch },
+	helpers: {
+		monthMatch: monthMatch,
+		paymentsMatch: paymentsMatch,
+	},
 	partialsDir: path.join(app.get('views'), 'partials'),
 	extname: '.hbs'
 }));
