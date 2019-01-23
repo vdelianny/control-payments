@@ -1,5 +1,4 @@
-const paymentsMatch = function (student, payments) {
-	console.log(student, payments);
+const paymentsMatch = function (payments) {
     return true;
 }
 

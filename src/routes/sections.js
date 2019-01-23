@@ -26,16 +26,19 @@ router.get('/sections/edit/:id', async (req, res) => {
 
 router.get('/sections/details/:id', async (req, res) => {
 	const students = await Student.find({ section: req.params.id }).sort({date: 'desc'});
-	const payments = await Payment.find({ student: { $in: students } });
-	res.render('sections/details-section', {payments, students});
+	for (var i = 0 ; i < students.length; i++) {
+		var payments = await Payment.find({ student: students[i]._id });
+		var newData = {};
+		newData = {
+			data: students[i],
+			payments: payments,
+		};
+		students[i] = newData;
+	}
+	//const payments = await Payment.find({ student: { $in: students } });
+	res.render('sections/details-section', {students});
 });
 
-//estudiantes deudores de una sección
-/*
-router.get('/sections/pending/:id', async (req, res) => {
-	var d = new Date().getMonth();
-});
-*/
 
 router.get('/sections/edit/:id', async (req, res) => {
 	const grades = await Grade.find().sort({number: 1});
