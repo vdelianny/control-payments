@@ -28,19 +28,16 @@
 		</thead>
 		<tbody>
 			{{#each students}}
-				{{#if (paymentsMatch payments)}}
-					<p>holis</p>
-					{{else}}
-					<p>bye</p>
+				{{#if (paymentsMatch payments 2)}}
+					<tr>
+						<td>{{data.name}}</td>
+						<td>{{data.surname}}</td>
+						<td>
+							<a href="/students/details/{{_id}}"><i class="far fa-user"></i></a>
+							<a href="/payments/{{_id}}/new-payment"><i class="far fa-money-bill-alt"></i></a>
+						</td>
+					</tr>
 				{{/if}}
-				<tr>
-					<td>{{data.name}}</td>
-					<td>{{data.surname}}</td>
-					<td>
-						<a href="/students/details/{{_id}}"><i class="far fa-user"></i></a>
-						<a href="/payments/{{_id}}/new-payment"><i class="far fa-money-bill-alt"></i></a>
-					</td>
-				</tr>
 			{{else}}
 				<tr>
 					<td>No hay registros</td>
