@@ -5,12 +5,34 @@ const Student = require('../models/Student');
 const Grade = require('../models/Grade');
 const Payment = require('../models/Payment');
 
+const parse = require('csv-parse');
+const fs = require("fs");
+const inputFile='./public/data.csv';
+
+
+
+
 
 //routes get
 router.get('/sections/new-section', async (req, res) => {
 	const grades = await Grade.find().sort({number: 1});
 	res.render('sections/new-section', { grades });
 });
+
+router.get('/test', async (req, res) => {
+	
+	var parser = parse({delimiter: ','}, function (err, data) {
+	  async.eachSeries(data, function (line, callback) {
+	    // do something with the line
+	    doSomething(line).then(function() {
+	      // when processing finishes invoke the callback to move to the next one
+	      callback();
+	    });
+	  })
+	});
+	fs.createReadStream(inputFile).pipe(parser);
+});
+
 
 router.get('/sections', async (req, res) => {
 	const sections = await Section.find().populate('grade', 'number').sort({grade: 'asc', name: 'asc'});
@@ -62,6 +84,7 @@ router.post('/sections/new-section', async (req, res) => {
 		res.redirect('/sections');
 	}
 });
+
 
 
 //routes put

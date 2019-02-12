@@ -24,11 +24,32 @@ router.get('/students/details/:id', async (req, res) => {
 
 //routes post
 router.post('/students/new-student', async (req, res) => {
-	const { name, surname, parent } = req.body;
+	const {
+		ce,
+		name,
+		surname,
+		gender,
+		age,
+		birthdate,
+		birthplace,
+		parent,
+		phone
+	} = req.body;
 	const grade = await Grade.findOne({number: req.body.grade});
 	const section = await Section.findOne({ name: req.body.section, grade: grade._id });
 	//falta validar que exista el grado/sección
-	const newStudent = new Student({ name, surname, parent, section: section._id });
+	const newStudent = new Student({
+		ce,
+		name,
+		surname,
+		gender,
+		age,
+		birthdate,
+		birthplace,
+		parent,
+		phone,
+		section: section._id
+	});
 	await newStudent.save();
 	req.flash('success_msg', 'estudiante agregada satisfactoriamente');
 	res.redirect('/sections');
