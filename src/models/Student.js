@@ -4,8 +4,8 @@ const { Schema } = mongoose;
 
 const StudentSchema = new Schema({
 	ce: { type: String, required: true },
-	name: { type: String, required: true },
 	surname: { type: String, required: true },
+	name: { type: String, required: true },
 	gender: { type: String, required: true },
 	age: { type: Number, required: true },
 	birthdate: { type: Date, required: true },

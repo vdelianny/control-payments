@@ -6,12 +6,8 @@ const Grade = require('../models/Grade');
 const Payment = require('../models/Payment');
 
 const parse = require('csv-parse');
-const fs = require("fs");
-const inputFile='./public/data.csv';
-
-
-
-
+const fs = require('fs');
+const inputFile = "./public/data.csv";
 
 //routes get
 router.get('/sections/new-section', async (req, res) => {
@@ -20,17 +16,26 @@ router.get('/sections/new-section', async (req, res) => {
 });
 
 router.get('/test', async (req, res) => {
-	
-	var parser = parse({delimiter: ','}, function (err, data) {
-	  async.eachSeries(data, function (line, callback) {
-	    // do something with the line
-	    doSomething(line).then(function() {
-	      // when processing finishes invoke the callback to move to the next one
-	      callback();
-	    });
-	  })
+
+	var parser = parse({delimiter: ';'}, function (err, data) {
+	    data.forEach(function(line) {
+	      var student = { "ce" : line[0]
+	                    , "surname" : line[1]
+	                    , "name" : line[2]
+	                    , "gender" : line[3]
+	                    , "age" : line[4]
+	                    , "birthdate" : line[5]
+	                    , "birthplace" : line[6]
+	                    , "parent" : line[7]
+	                    , "phone" : line[8]
+	                    , "section" : "5c3f5f5b31044416b895531e"
+	                    };
+	     console.log(student);
+	    });    
 	});
-	fs.createReadStream(inputFile).pipe(parser);
+
+	fs.createReadStream(__dirname+'/data.csv').pipe(parser);
+	res.render('index');
 });
 
 
