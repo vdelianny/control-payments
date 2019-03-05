@@ -1,25 +1,32 @@
-<div class="col-md-4 mx-auto">
-	<div class="card">
-		<div class="card-header">
-			<h3>New grade</h3>
-		</div>
-		<div class="card-body">
-			<form action="/grades/new-grade" method="POST">
-				<div class="form-group">
-					<label for="gradeSelect">Grade</label>
-				    <select class="custom-select" name="number" id="gradeSelect">
-						<option value="1" selected>1°</option>
-				    	<option value="2">2°</option>
-				    	<option value="3">3°</option>
-				    	<option value="4">4°</option>
-				    	<option value="5">5°</option>
-				    	<option value="6">6°</option>
-				    </select>
-				</div>
-				<div class="form-group">
-					<button class="btn btn-primary btn-block" type="submit">Save</button>
-				</div>
-			</form>
+<div class="new-grade">
+	<div class="title-box mb-5">
+		<p>Nuevo grado</p>
+		<hr>
+	</div>
+	<div class="col-12 col-md-5 mx-auto">
+		<div class="card">
+			<div class="card-header">
+				<i class="far fa-user mx-1"></i>
+				<span>Añadir grado</span>
+			</div>
+			<div class="card-body">
+				<form action="/grades/new-grade" method="POST">
+					<div class="form-group">
+						<label for="gradeSelect">Ingrese el grado que desea añadir</label>
+					    <select class="custom-select" name="number" id="gradeSelect">
+							<option value="1" selected>1°</option>
+					    	<option value="2">2°</option>
+					    	<option value="3">3°</option>
+					    	<option value="4">4°</option>
+					    	<option value="5">5°</option>
+					    	<option value="6">6°</option>
+					    </select>
+					</div>
+					<div class="form-group">
+						<button class="btn btn-block mt-5" type="submit">Guardar</button>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 </div>

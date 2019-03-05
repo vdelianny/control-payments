@@ -1,36 +1,43 @@
-<div>
-	<table class="table">
-		<thead>
-			<tr>
-				<th scope="col">Grado</th>
-				<th scope="col">Sección</th>
-				<th scope="col">Acciones</th>
-			</tr>
-		</thead>
-		<tbody>
-			{{#each sections}}
+<div class="sections">
+	<div class="title-box mb-5">
+		<p>Secciones</p>
+		<hr>
+	</div>
+	<div class="table-box px-5 py-4">
+		<table class="table text-center">
+			<thead>
 				<tr>
-					<td>{{grade.number}}°</td>
-					<td>{{name}}</td>
-					<td>
-						<a href="/sections/details/{{_id}}"><i class="far fa-user"></i></a>
-						<a href="/sections/edit/{{_id}}"><i class="far fa-edit"></i></a>
-						<form action="/sections/delete/{{_id}}?_method=DELETE" method="POST" style="display: inline;">
-							<input type="hidden" name="_method" value="DELETE">
-							<button type="submit">
-								<i class="far fa-trash-alt"></i>
-							</button>
-						</form>
-					</td>
+					<th scope="col">Grado</th>
+					<th scope="col">Sección</th>
+					<th scope="col">Acciones</th>
 				</tr>
-			{{else}}
-				<tr>
-					<td>
-						<p class="lead">No hay secciones para mostrar</p>
-						<a href="/sections/new-section" class="btn btn-success btn-block">Nueva seccion</a>
-					</td>
-				</tr>
-			{{/each}}
-		</tbody>
-	</table>
+			</thead>
+			<tbody>
+				{{#each sections}}
+					<tr>
+						<td>{{grade.number}}°</td>
+						<td>{{name}}</td>
+						<td>
+							<a href="/sections/details/{{_id}}"><i class="far fa-user mx-1"></i></a>
+							<a href="/sections/edit/{{_id}}"><i class="far fa-edit mx-1"></i></a>
+							<a href="/sections/students/add-batch/{{_id}}"><i class="far fa-file mx-1"></i></a>
+							<form action="/sections/delete/{{_id}}?_method=DELETE" method="POST" style="display: inline;">
+								<input type="hidden" name="_method" value="DELETE">
+								<button type="submit">
+									<i class="far fa-trash-alt mx-1"></i>
+								</button>
+							</form>
+						</td>
+					</tr>
+				{{else}}
+					<tr>
+						<td>
+							<p class="lead">No hay secciones para mostrar</p>
+							<a href="/sections/new-section" class="btn btn-success btn-block">Nueva seccion</a>
+						</td>
+					</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	</div>
 </div>

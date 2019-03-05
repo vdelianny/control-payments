@@ -1,0 +1,75 @@
+/*global styles*/
+body{
+	color: #3d3d3d;
+	font-family: 'Roboto';
+}
+body i{
+	color: #d0626f;
+}
+.title-box p{
+	color: #d0626f;
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+.title-box hr{
+    border: .7px solid rgba(208, 98, 111, 0.7);
+}
+.table-box{
+	box-shadow: 0px 2px 20px -3px rgba(158, 155, 155, .4);
+}
+.table-box .table th{
+	border-top: none;
+}
+.table-box .table button{
+	background: none;
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+.card{
+	box-shadow: 0px 2px 20px -3px rgba(158, 155, 155, .4);
+	border: none;
+	border-radius: 0px;
+}
+.card .card-header{
+	background-color: #c36364;
+	border-radius: 0px;
+    color: #f7f7f7;
+    font-weight: 300;
+    font-size: 1.5rem;
+}
+.card .card-header i{
+	color: #f7f7f7;
+	font-size: 1.1rem;
+}
+.card .card-body .btn{
+	background-color: #c36364;
+	border-radius: 0px;
+    color: #f7f7f7;
+}
+
+
+
+/*navigation*/
+.menu-header .nav-header{
+	background-color: #c36364;
+	text-decoration: none;
+}
+.menu-header .navbar{
+	background-color: #3d3d3d;
+}
+.menu-header .navbar .nav-link{
+    color: rgba(255,255,255,.7);
+    font-size: .95rem;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+
+/*grades section*/
+.grades .table-box{
+	box-shadow: 0px 2px 20px -3px rgba(158, 155, 155, .4);	
+}
+.grades .table-box .table th{
+	border-top: none;
+}

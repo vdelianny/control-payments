@@ -1,27 +1,33 @@
-<div>
-	<table class="table">
-		<thead>
-			<tr>
-				<th scope="col">Grado</th>
-				<th scope="col">Acciones</th>
-			</tr>
-		</thead>
-		<tbody>
-			{{#each grades}}
+<div class="grades">
+	<div class="title-box mb-5">
+		<p>Grados</p>
+		<hr>
+	</div>
+	<div class="table-box px-5 py-4">
+		<table class="table text-center">
+			<thead>
 				<tr>
-					<td>{{number}}°</td>
-					<td>
-						<a href="/grades/details/{{_id}}"><i class="far fa-eye"></i></a>
-					</td>
+					<th scope="col">Grado</th>
+					<th scope="col">Acciones</th>
 				</tr>
-			{{else}}
-				<tr>
-					<td>
-						<p class="lead">No hay secciones para mostrar</p>
-						<a href="/grades/new-grade" class="btn btn-success btn-block">Nuevo grado</a>
-					</td>
-				</tr>
-		</tbody>
-		{{/each}}
-	</table>
+			</thead>
+			<tbody>
+				{{#each grades}}
+					<tr>
+						<td>{{number}}°</td>
+						<td>
+							<a href="/grades/details/{{_id}}"><i class="far fa-eye mx-1"></i></a>
+						</td>
+					</tr>
+				{{else}}
+					<tr>
+						<td>
+							<p class="lead">No hay secciones para mostrar</p>
+							<a href="/grades/new-grade" class="btn btn-success btn-block">Nuevo grado</a>
+						</td>
+					</tr>
+			</tbody>
+			{{/each}}
+		</table>
+	</div>
 </div>

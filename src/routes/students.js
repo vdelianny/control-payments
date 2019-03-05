@@ -5,6 +5,7 @@ const Student = require('../models/Student');
 const Grade = require('../models/Grade');
 const Payment = require('../models/Payment');
 
+
 /*
 	Hay que mandar las secciones por grado (depende del formato de la escuela).
 */
@@ -51,7 +52,7 @@ router.post('/students/new-student', async (req, res) => {
 		section: section._id
 	});
 	await newStudent.save();
-	req.flash('success_msg', 'estudiante agregada satisfactoriamente');
+	req.flash('success_msg', 'estudiante agregado satisfactoriamente');
 	res.redirect('/sections');
 });
 

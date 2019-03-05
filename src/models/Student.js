@@ -8,7 +8,7 @@ const StudentSchema = new Schema({
 	name: { type: String, required: true },
 	gender: { type: String, required: true },
 	age: { type: Number, required: true },
-	birthdate: { type: Date, required: true },
+	birthdate: { type: String, required: true },
 	birthplace: { type: String, required: true },
 	parent: { type: String, required: true },
 	phone: { type: String, required: false },

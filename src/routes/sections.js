@@ -7,35 +7,11 @@ const Payment = require('../models/Payment');
 
 const parse = require('csv-parse');
 const fs = require('fs');
-const inputFile = "./public/data.csv";
 
 //routes get
 router.get('/sections/new-section', async (req, res) => {
 	const grades = await Grade.find().sort({number: 1});
 	res.render('sections/new-section', { grades });
-});
-
-router.get('/test', async (req, res) => {
-
-	var parser = parse({delimiter: ';'}, function (err, data) {
-	    data.forEach(function(line) {
-	      var student = { "ce" : line[0]
-	                    , "surname" : line[1]
-	                    , "name" : line[2]
-	                    , "gender" : line[3]
-	                    , "age" : line[4]
-	                    , "birthdate" : line[5]
-	                    , "birthplace" : line[6]
-	                    , "parent" : line[7]
-	                    , "phone" : line[8]
-	                    , "section" : "5c3f5f5b31044416b895531e"
-	                    };
-	     console.log(student);
-	    });    
-	});
-
-	fs.createReadStream(__dirname+'/data.csv').pipe(parser);
-	res.render('index');
 });
 
 
@@ -73,6 +49,35 @@ router.get('/sections/edit/:id', async (req, res) => {
 	res.render('sections/edit-section', {grades, section});
 });
 
+router.get('/sections/add-batch', async (req, res) => {
+	res.render('sections/add-batch');
+});
+
+router.get('/sections/students/add-batch/:id', async (req, res) => {
+
+	var parser = parse({delimiter: ';'}, function (err, data) {
+	    data.forEach(async function(line) {
+			const newStudent = new Student({
+				"ce" : line[0],
+				"surname" : line[1],
+				"name" : line[2],
+				"gender" : line[3],
+				"age" : line[4],
+	           	"birthdate" : line[5],
+	           	"birthplace" : line[6],
+	           	"parent" : line[7],
+	           	"phone" : line[8],
+	           	"section" : req.params.id
+			});
+			await newStudent.save();
+	    });    
+	});
+
+	req.flash('success_msg', 'estudiante agregado satisfactoriamente');
+
+	fs.createReadStream(__dirname+'/../public/data.csv').pipe(parser);
+	res.render('sections/add-batch');
+});
 
 //routes post
 
@@ -88,6 +93,14 @@ router.post('/sections/new-section', async (req, res) => {
 		await newSection.save();
 		res.redirect('/sections');
 	}
+});
+
+
+router.post('/sections/add-batch', async (req, res) => {
+	const { archivo } = req.body;
+	//fs.createReadStream('path/to/my/'+archivo).pipe(parser);
+	console.log(req.url);
+	res.redirect('/sections');
 });
 
 
