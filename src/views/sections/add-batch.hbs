@@ -1,12 +1,26 @@
-<div>
-	<h1>formulario de carga de estudiantes</h1>
+<div class="add-batch">
+	<div class="title-box mb-5">
+		<p>Añadir datos estudiantiles</p>
+		<hr>
+	</div>
+	<div class="col-md-5 mx-auto">
+		<div class="card">
+			<div class="card-header">
+				<i class="far fa-bookmark mx-1"></i>
+				<span>Añadir estudiantes</span>
+			</div>
+			<div class="card-body">
+				<form action="/sections/add-batch" method="POST">
+					<div class="form-group mb-4">
+						<label for="fileStudents">Subir archivo</label>
+						<input id="fileStudents" type="file" name="archivo">
+					</div>
+					<div class="form-group">
+						<button class="btn btn-block" type="submit">Guardar</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 
-	<form action="/sections/add-batch" method="POST">
-		<div class="form-group">
-			<input type="file" name="archivo" class="form-control">
-		</div>
-		<div class="form-group">
-			<button class="btn btn-primary btn-block" type="submit">Guardar</button>
-		</div>
-	</form>
 </div>

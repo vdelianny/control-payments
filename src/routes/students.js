@@ -17,7 +17,7 @@ router.get('/students/new-student', async (req, res) => {
 });
 
 router.get('/students/details/:id', async (req, res) => {
-	const student = await Student.findById(req.params.id);
+	const student = await Student.findById(req.params.id).populate('section', 'name');
 	const payments = await Payment.find({student: req.params.id});
 	res.render('students/details-student', {student, payments});
 });
