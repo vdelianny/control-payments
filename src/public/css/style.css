@@ -51,10 +51,12 @@ body i{
 	font-size: .95rem;
     font-weight: 500;
 }
-.form-group	select{
+.form-group	select,
+.form-group .form-control{
 	border-radius: 0;
 }
-.form-group	select:focus{
+.form-group	select:focus,
+.form-group .form-control:focus{
 	box-shadow: none;
 }
 
@@ -98,6 +100,13 @@ body i{
 	font-size: 1.8rem;
 	font-weight: 200;
 }
+.student-profile .box-profile .header .avatar img{
+	background: #fff;
+    border: 3px solid #d8d8d8;
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
+    margin-left: -40px;
+    margin-top: -10px;
+}
 .student-profile .box-profile .header .label{
     color: #c36364;
     font-size: .95rem;
@@ -112,4 +121,15 @@ body i{
     color: rgba(0,0,0,.5);
     font-size: .95rem;
     font-weight: 400;
+}
+.student-profile .box-profile.months .title-card{
+    background: #c36364;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.8);
+    color: #f7f7f7 !important;
+    font-weight: 500;
+}
+.student-profile .box-profile.months .data,
+.student-profile .box-profile.months .data p i{
+    color: rgba(0,0,0,.5);
+	font-weight: 500;
 }

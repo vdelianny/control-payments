@@ -4,9 +4,12 @@
 			<div class="header py-3">
 				<p class="mb-0">{{student.name}} {{student.surname}}</p>
 				<p class="label">C.E.: {{student.ce}}</p>
+				<div class="avatar">
+					<img src="/images/{{student.gender}}.png" class="position-absolute rounded-circle" alt="avatar" width="80px" height="auto">
+				</div>
 			</div>
 			<div class="data px-3 py-3 py-md-5">
-				<div class="row">
+				<div class="row mt-5 mt-md-3">
 					<div class="col-md-4 mb-3 mb-md-0">
 						<div class="inf">{{student.age}}</div>
 						<div class="label">Años</div>
@@ -23,13 +26,24 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-md-5">
-		<div class="box-profile p-4 h-100">
-			{{#each payments}}
+	<div class="col-md-5 mt-4 mt-md-0">
+		<div class="box-profile months h-100">
+			<div class="title-card">
+				<p class="mb-0 px-3 py-3">Meses pagados</p>
+			</div>
+			<div class="p-4 data">
+				{{#each payments}}
 					<p><i class="far fa-check-circle"></i> {{monthMatch month}}</p>								
-				{{else}}
-					<p>el estudiante no ha pagado nadita</p>
-			{{/each}}
+					{{else}}
+					<div class="text-center">
+						<span class="fa-stack fa-2x mb-4">
+							<i class="fas fa-dollar-sign fa-stack-1x"></i>
+							<i class="fas fa-ban fa-stack-2x"></i>
+						</span>
+						<p>El estudiante no ha realizado pagos</p>
+					</div>
+				{{/each}}
+			</div>
 		</div>
 	</div>
 </div>
