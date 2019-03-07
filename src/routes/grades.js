@@ -26,11 +26,12 @@ router.post('/grades/new-grade', async (req, res) => {
 	const { number } = req.body;
 	const gradeVerify = await Grade.findOne({number: number});
 	if (gradeVerify) {
-		req.flash('error', 'el grado ya existe');
+		req.flash('error', 'El grado ya existe');
 		res.redirect('/grades/new-grade');
 	} else {
 		const newGrade = new Grade({ number });
 		await newGrade.save();
+		req.flash('success_msg', 'El grado fue agregado satisfactoriamente');
 		res.redirect('/grades');
 	}
 

@@ -23,14 +23,14 @@ router.post('/payments/:id/new-payment', async (req, res) => {
 		const payments = await Payment.find({student: student._id});
 		if (paymentsValidate(month, payments)) {
 			await newPayment.save();
-			req.flash('success_msg', 'pago agregado satisfactoriamente');
+			req.flash('success_msg', 'Pago agregado satisfactoriamente');
 			res.redirect('/sections');
 		} else {
-			req.flash('error', 'pague el mes correspondiente');
+			req.flash('error', 'Pague el mes correspondiente');
 			res.redirect('/sections');
 		}
 	} else {
-		req.flash('error', 'se ha producido un error con el estudiante, intente nuevamente');
+		req.flash('error', 'Se ha producido un error con el estudiante, intente nuevamente');
 		const newUrl = '/payments/' + req.params.id + 'new-payment'; 
 		res.redirect(newUrl);
 	}

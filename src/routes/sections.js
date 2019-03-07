@@ -73,7 +73,7 @@ router.get('/sections/students/add-batch/:id', async (req, res) => {
 	    });    
 	});
 
-	req.flash('success_msg', 'estudiante agregado satisfactoriamente');
+	req.flash('success_msg', 'Estudiantes agregados satisfactoriamente');
 
 	fs.createReadStream(__dirname+'/../public/data.csv').pipe(parser);
 	res.render('sections/add-batch');
@@ -87,7 +87,7 @@ router.post('/sections/new-section', async (req, res) => {
 	const newSection = new Section({ name, grade: grade._id });
 	const sectionVerify = await Section.findOne({ name: newSection.name, grade: newSection.grade });
 	if (sectionVerify) {
-		req.flash('error', 'la sección ya existe');
+		req.flash('error', 'La sección ya existe');
 		res.redirect('/sections/new-section');
 	} else {
 		await newSection.save();
@@ -111,13 +111,13 @@ router.put('/sections/edit-section/:id', async (req, res) => {
 	const grade = await Grade.findOne({number: req.body.grade});
 	const sectionVerify = await Section.findOne({ name, grade });
 	if (sectionVerify) {
-		req.flash('error', 'la sección ya existe');
+		req.flash('error', 'La sección ya existe');
 		const newUrl = '/sections/edit/' + req.params.id; 
 		res.redirect(newUrl);
-		console.log("la sección ya existe");
+		console.log("La sección ya existe");
 	} else {
 		await Section.findByIdAndUpdate(req.params.id, { name, grade });
-		req.flash('success_msg', 'Nota editada satisfactoriamente');
+		req.flash('success_msg', 'Sección editada satisfactoriamente');
 		res.redirect('/sections');
 	}
 

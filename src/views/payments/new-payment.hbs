@@ -1,31 +1,38 @@
-<div class="col-md-4 mx-auto">
-	<div class="card">
-		<div class="card-header">
-			<h3>Add payment</h3>
-		</div>
-		<div class="card-body">
-			<form action="/payments/{{id}}/new-payment" method="POST">
-				<div class="form-group">
-					<label for="monthSelect">Mes</label>
-				    <select class="custom-select" name="month" id="monthSelect">
-				    	<option value="1">Enero</option>
-				    	<option value="2">Febrero</option>
-				    	<option value="3">Marzo</option>
-				    	<option value="4">Abril</option>
-				    	<option value="5">Mayo</option>
-				    	<option value="6">Junio</option>
-				    	<option value="7">Julio</option>
-				    	<option value="8">Agosto</option>
-				    	<option value="9">Septiembre</option>
-				    	<option value="10">Octubre</option>
-				    	<option value="11">Noviembre</option>
-				    	<option value="12">Diciembre</option>
-				    </select>
-				</div>
-				<div class="form-group">
-					<button class="btn btn-primary btn-block" type="submit">Save</button>
-				</div>
-			</form>
+<div class="new-payment">
+	<div class="title-box mb-5">
+		<p>Nuevo pago</p>
+		<hr>
+	</div>
+	<div class="col-md-5 mx-auto">
+		<div class="card">
+			<div class="card-header">
+				<i class="fas fa-dollar-sign mx-1"></i>
+				Añadir pago
+			</div>
+			<div class="card-body">
+				<form action="/payments/{{id}}/new-payment" method="POST">
+					<div class="form-group">
+						<label for="monthSelect">Mes</label>
+					    <select class="custom-select" name="month" id="monthSelect">
+					    	<option value="1">Enero</option>
+					    	<option value="2">Febrero</option>
+					    	<option value="3">Marzo</option>
+					    	<option value="4">Abril</option>
+					    	<option value="5">Mayo</option>
+					    	<option value="6">Junio</option>
+					    	<option value="7">Julio</option>
+					    	<option value="8">Agosto</option>
+					    	<option value="9">Septiembre</option>
+					    	<option value="10">Octubre</option>
+					    	<option value="11">Noviembre</option>
+					    	<option value="12">Diciembre</option>
+					    </select>
+					</div>
+					<div class="form-group">
+						<button class="btn btn-block" type="submit">Guardar</button>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 </div>

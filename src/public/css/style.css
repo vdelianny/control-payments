@@ -78,6 +78,24 @@ body i{
 }
 
 
+/*messages*/
+.alert{
+    border-radius: 0;
+	color: #F5F5F5;
+}
+.alert i{
+	color: #f5f5f5;
+}
+.alert.alert-success{
+    background-color: rgba(108, 191, 108, .9);
+    border-color: rgba(108, 191, 108, .9);
+}
+.alert.alert-danger{
+	background-color: rgba(215, 67, 62, 0.85);
+	border-color: rgba(215, 67, 62, 0.85);
+}
+
+
 /*grades section*/
 .grades .table-box{
 	box-shadow: 0px 2px 20px -3px rgba(158, 155, 155, .4);
