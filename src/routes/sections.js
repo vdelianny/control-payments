@@ -8,6 +8,10 @@ const Payment = require('../models/Payment');
 const parse = require('csv-parse');
 const fs = require('fs');
 
+var multer  = require('multer')
+var upload = multer({ dest: 'uploads' })
+
+
 //routes get
 router.get('/sections/new-section', async (req, res) => {
 	const grades = await Grade.find().sort({number: 1});
@@ -49,11 +53,17 @@ router.get('/sections/edit/:id', async (req, res) => {
 	res.render('sections/edit-section', {grades, section});
 });
 
-router.get('/sections/add-batch', async (req, res) => {
+
+router.get('/sections/students/add-batch/:id', async (req, res) => {
 	res.render('sections/add-batch');
 });
 
-router.get('/sections/students/add-batch/:id', async (req, res) => {
+//routes post
+
+
+router.post('/upload', upload.single('batch'), function (req, res, next) {
+	var idUrl = req.headers.referer.split("http://localhost:3000/sections/students/add-batch/");
+	idUrl = idUrl[1];
 
 	var parser = parse({delimiter: ';'}, function (err, data) {
 	    data.forEach(async function(line) {
@@ -67,19 +77,21 @@ router.get('/sections/students/add-batch/:id', async (req, res) => {
 	           	"birthplace" : line[6],
 	           	"parent" : line[7],
 	           	"phone" : line[8],
-	           	"section" : req.params.id
+	           	"section" : idUrl
 			});
 			await newStudent.save();
 	    });    
 	});
 
+	fs.createReadStream(__dirname+'/../../'+req.file.path).pipe(parser);
 	req.flash('success_msg', 'Estudiantes agregados satisfactoriamente');
-
-	fs.createReadStream(__dirname+'/../public/data.csv').pipe(parser);
-	res.render('sections/add-batch');
+	res.redirect('/sections');
+	/*try {
+		fs.unlinkSync(__dirname+'/../../'+req.file.path);
+	} catch(err) {
+		console.error(err)
+	}*/
 });
-
-//routes post
 
 router.post('/sections/new-section', async (req, res) => {
 	const { name } = req.body;
@@ -97,9 +109,32 @@ router.post('/sections/new-section', async (req, res) => {
 
 
 router.post('/sections/add-batch', async (req, res) => {
-	const { archivo } = req.body;
-	//fs.createReadStream('path/to/my/'+archivo).pipe(parser);
-	console.log(req.url);
+	var idUrl = req.headers.referer.split("http://localhost:3000/sections/students/add-batch/");
+	idUrl = idUrl[1];
+
+	var parser = parse({delimiter: ';'}, function (err, data) {
+	    data.forEach(async function(line) {
+			const newStudent = new Student({
+				"ce" : line[0],
+				"surname" : line[1],
+				"name" : line[2],
+				"gender" : line[3],
+				"age" : line[4],
+	           	"birthdate" : line[5],
+	           	"birthplace" : line[6],
+	           	"parent" : line[7],
+	           	"phone" : line[8],
+	           	"section" : idUrl
+			});
+			await newStudent.save();
+	    });    
+	});
+
+	req.flash('success_msg', 'Estudiantes agregados satisfactoriamente');
+
+	fs.createReadStream(__dirname+'/../public/data.csv').pipe(parser);
+
+
 	res.redirect('/sections');
 });
 

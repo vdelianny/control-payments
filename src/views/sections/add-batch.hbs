@@ -10,10 +10,10 @@
 				<span>Añadir estudiantes</span>
 			</div>
 			<div class="card-body">
-				<form action="/sections/add-batch" method="POST">
+				<form action="/upload" enctype="multipart/form-data" method="POST">
 					<div class="form-group mb-4">
 						<label for="fileStudents">Subir archivo</label>
-						<input id="fileStudents" type="file" name="archivo">
+						<input id="fileStudents" type="file" name="batch">
 					</div>
 					<div class="form-group">
 						<button class="btn btn-block" type="submit">Guardar</button>
