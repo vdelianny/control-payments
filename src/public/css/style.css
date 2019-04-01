@@ -26,6 +26,13 @@ body i{
 	margin: 0;
 	padding: 0;
 }
+.btn{
+	border-radius: 0px;
+}
+.btn:focus, button{
+	box-shadow: none;
+	outline: none !important;
+}
 .card{
 	box-shadow: 0px 2px 20px -3px rgba(158, 155, 155, .4);
 	border: none;
@@ -59,7 +66,22 @@ body i{
 .form-group .form-control:focus{
 	box-shadow: none;
 }
-
+.modal .modal-header{
+	background-color: #c36364;
+}
+.modal .modal-header h5,
+.modal .modal-header button{
+	color: #FFF;
+	font-weight: 300;
+}
+.modal .btn.btn-confirm{
+	background-color: #c36364;
+	color: #fff;
+}
+.modal .btn.btn-cancel{
+	background-color: #3d3d3d;
+	color: #fff;
+}
 
 
 /*navigation*/
@@ -95,6 +117,59 @@ body i{
 	border-color: rgba(215, 67, 62, 0.85);
 }
 
+/* index / home*/
+
+.home .box{
+	box-shadow: 0px 2px 5px 0px rgba(158, 155, 155, .3);
+}
+.home .box .title{
+	font-size: 1.3rem;
+	font-weight: 400;
+}
+.home .box .btn{
+	color: #FFF;
+}
+.home .box.box-grade{
+    background-color: rgba(147, 61, 108, 0.05);
+	/*border-left: 10px solid #933d6c;*/
+}
+.home .box.box-grade .title{
+	color: #933d6c;
+}
+.home .box.box-grade .btn{
+	background-color: #933d6c;
+}
+.home .box.box-section{
+	background: rgba(255, 74, 129, 0.05);
+	/*border-left: 10px solid #e0396c;*/
+}
+.home .box.box-section .title{
+	color: #e0396c;
+}
+.home .box.box-section .btn{
+	background-color: #e0396c;
+}
+.home .box.box-year{
+	background: rgba(1, 165, 177, 0.05);
+	/*border-left: 10px solid #01a5b1;*/
+}
+.home .box.box-year .title{
+	color: #01a5b1;
+}
+.home .box.box-year .btn{
+	background-color: #01a5b1;
+}
+.home .box.box-student{
+	background: rgba(111, 159, 39, 0.09);
+	/*border-left: 10px solid #6f9f27;*/
+}
+.home .box.box-student .title{
+	color: #6f9f27;
+}
+.home .box.box-student .btn{
+	background-color: #6f9f27;
+}
+
 
 /*grades section*/
 .grades .table-box{
@@ -109,7 +184,7 @@ body i{
 /*students*/
 
 .student-profile .box-profile{
-	box-shadow: 0px 2px 20px -3px rgba(158, 155, 155, .4);
+	box-shadow: 0px 2px 5px 0px rgba(158, 155, 155, .3);
 }
 .student-profile .box-profile .header{
 	background-color: #3d3d3d;

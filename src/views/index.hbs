@@ -1,5 +1,77 @@
-<div class="jumbotron mt-4">
-	<h1 class="display-4">Notes app</h1>
-	<hr>
-	<p>Delianny Villarroel</p>
+<div class="text-center home">
+	<div class="row">
+		<div class="col-12 col-md-6 p-4">
+			<div class="box box-year">			
+				<div class="p-4 row">
+					<div class="col-12 col-md-6 text-left">
+						<img src="/images/img-1.png" width="80%" height="auto" alt="">
+					</div>
+					<div class="col-12 col-md-6 my-auto">
+						<p class="title">Nuevo año escolar</p>
+						<button type="button" data-toggle="modal" data-target="#modalConfirm" class="btn w-100">Crear</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-12 col-md-6">
+			<div class="row p-4">
+				<div class="col-12 box box-grade">
+					<div class="p-3 p-md-2 row">
+						<div class="col-12 col-md-6 text-left">
+							<img src="/images/img-3.png" width="40%" height="auto" alt="">
+						</div>
+						<div class="col-12 col-md-6 my-auto">
+							<p class="title">Nuevo grado</p>
+							<a href="/grades/new-grade" class="btn w-100">Crear</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 box box-section mt-3">			
+					<div class="p-3 p-md-2 row">
+						<div class="col-12 col-md-6 text-left">
+							<img src="/images/img-2.png" width="40%" height="auto" alt="">
+						</div>
+						<div class="col-12 col-md-6 my-auto">
+							<p class="title">Nueva sección</p>
+							<a href="/sections/new-section" class="btn w-100">Crear</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-12 px-4 py-2">
+			<div class="box box-student">			
+				<div class="p-3 row">
+					<div class="col-12 col-md-6 text-left">
+						<img src="/images/img-4.png" width="40%" height="auto" alt="">
+					</div>
+					<div class="col-12 col-md-6 my-auto">
+						<p class="title">Nuevo estudiante</p>
+						<a href="/students/new-student" class="btn w-75 mx-auto">Crear</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="modalConfirm" tabindex="-1" role="dialog" aria-labelledby="modalConfirmLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="modalConfirmLabel">Confirmación</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p>¿Desea crear un nuevo año escolar? Si lo hace, perderá toda la información del año escolar actual</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-cancel" data-dismiss="modal">Cancelar</button>
+					<button type="button" class="btn btn-confirm">Confirmar</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
