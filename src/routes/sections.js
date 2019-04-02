@@ -86,11 +86,9 @@ router.post('/upload', upload.single('batch'), function (req, res, next) {
 	fs.createReadStream(__dirname+'/../../'+req.file.path).pipe(parser);
 	req.flash('success_msg', 'Estudiantes agregados satisfactoriamente');
 	res.redirect('/sections');
-	/*try {
+	/*
 		fs.unlinkSync(__dirname+'/../../'+req.file.path);
-	} catch(err) {
-		console.error(err)
-	}*/
+	*/
 });
 
 router.post('/sections/new-section', async (req, res) => {
