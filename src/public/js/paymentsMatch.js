@@ -1,17 +1,14 @@
 const paymentsMatch = function (payments, number) {
-	lastPayment = payments[payments.length - 1];
+	
+	lastPayment = payments.slice(-1);
 
-	//consulta si el último mes pagado es menor al mes que se quiere consultar, retorna true en caso de deuda
-
-	/*
-	Debe colocarse que sólo muestre los deudores si ha seleccionado la opción
-	if (lastPayment.month < number) {
-    	return true;
+	if (number == 0 || lastPayment.length < 1) {
+		return true;
+	} else {
+		return lastPayment[0].month < number;
 	}
-	return false;
-	*/
 
-	return true;
+	return false;
 }
 
 module.exports = paymentsMatch;
