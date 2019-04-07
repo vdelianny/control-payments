@@ -95,12 +95,12 @@ router.post('/upload', upload.single('batch'), function (req, res, next) {
 	           	"section" : idUrl
 			});
 			await newStudent.save();
-	    });    
+	    }); 
+		res.redirect('/sections/details/'+idUrl+'/');
 	});
 
 	fs.createReadStream(__dirname+'/../../'+req.file.path).pipe(parser);
 	req.flash('success_msg', 'Estudiantes agregados satisfactoriamente');
-	res.redirect('/sections');
 	/*
 		fs.unlinkSync(__dirname+'/../../'+req.file.path);
 	*/
@@ -140,7 +140,7 @@ router.post('/sections/add-batch', async (req, res) => {
 	           	"section" : idUrl
 			});
 			await newStudent.save();
-	    });    
+	    });
 	});
 
 	req.flash('success_msg', 'Estudiantes agregados satisfactoriamente');

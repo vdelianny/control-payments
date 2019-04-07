@@ -53,7 +53,7 @@ router.post('/students/new-student', async (req, res) => {
 	});
 	await newStudent.save();
 	req.flash('success_msg', 'Estudiante agregado satisfactoriamente');
-	res.redirect('/sections');
+	res.redirect('/');
 });
 
 
