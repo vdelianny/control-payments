@@ -1,5 +1,5 @@
 const paymentsMatch = function (payments) {
-	var number = new Date().getMonth();
+	var number = new Date().getMonth()+5;
 
 	lastPayment = payments.slice(-1);
 
