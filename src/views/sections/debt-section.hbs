@@ -1,6 +1,6 @@
 <div class="details-section">
 	<div class="title-box mb-5">
-		<p>Detalles de la sección</p>
+		<p>Estudiantes con pagos pendientes</p>
 		<hr>
 	</div>
 	<div class="table-box table-responsive px-5 py-4">
@@ -14,14 +14,16 @@
 			</thead>
 			<tbody>
 				{{#each students}}
-					<tr>
-						<td>{{data.name}}</td>
-						<td>{{data.surname}}</td>
-						<td>
-							<a href="/students/details/{{data._id}}"><i class="far fa-user"></i></a>
-							<a href="/payments/{{data._id}}/new-payment"><i class="far fa-money-bill-alt"></i></a>
-						</td>
-					</tr>
+					{{#if (paymentsMatch payments)}}
+						<tr>
+							<td>{{data.name}}</td>
+							<td>{{data.surname}}</td>
+							<td>
+								<a href="/students/details/{{data._id}}"><i class="far fa-user"></i></a>
+								<a href="/payments/{{data._id}}/new-payment"><i class="far fa-money-bill-alt"></i></a>
+							</td>
+						</tr>
+					{{/if}}
 				{{else}}
 					<tr>
 						<td>No hay registros</td>
@@ -29,8 +31,5 @@
 				{{/each}}
 			</tbody>
 		</table>
-		<div class="text-center py-4">
-			<a href="debt" class="btn btn-primary btn-custom">Consultar estudiantes con pagos pendientes</a>
-		</div>
 	</div>
 </div>

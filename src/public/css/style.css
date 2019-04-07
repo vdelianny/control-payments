@@ -83,6 +83,15 @@ body i{
 	color: #fff;
 }
 
+.btn-primary,
+.btn-primary:focus,
+.btn-primary:hover,
+.btn-primary:active{
+	background-color: #c36364 !important;
+	border-color: #c36364 !important;
+    color: #f7f7f7;
+}
+
 
 /*navigation*/
 .menu-header .nav-header{

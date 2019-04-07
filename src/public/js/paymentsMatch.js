@@ -1,5 +1,6 @@
-const paymentsMatch = function (payments, number) {
-	
+const paymentsMatch = function (payments) {
+	var number = new Date().getMonth();
+
 	lastPayment = payments.slice(-1);
 
 	if (number == 0 || lastPayment.length < 1) {
