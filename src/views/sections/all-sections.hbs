@@ -21,11 +21,11 @@
 							<a href="/sections/details/{{_id}}/"><i class="far fa-user mx-1"></i></a>
 							<a href="/sections/edit/{{_id}}"><i class="far fa-edit mx-1"></i></a>
 							<a href="/sections/students/add-batch/{{_id}}"><i class="far fa-file mx-1"></i></a>
-							<form action="/sections/delete/{{_id}}?_method=DELETE" method="POST" style="display: inline;">
+							<button type="button" onclick="selectSection('{{id}}')" data-toggle="modal" data-target="#modalConfirm">
+								<i class="far fa-trash-alt mx-1"></i>
+							</button>
+							<form id="delete-{{id}}" action="/sections/delete/{{_id}}?_method=DELETE" method="POST" style="display: inline;">
 								<input type="hidden" name="_method" value="DELETE">
-								<button type="submit">
-									<i class="far fa-trash-alt mx-1"></i>
-								</button>
 							</form>
 						</td>
 					</tr>
@@ -40,4 +40,38 @@
 			</tbody>
 		</table>
 	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="modalConfirm" tabindex="-1" role="dialog" aria-labelledby="modalConfirmLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="modalConfirmLabel">Confirmación</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p>¿Desea eliminar esta sección? Si lo hace, perderá toda la información de esta sección.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-cancel" data-dismiss="modal">Cancelar</button>
+					<button type="button" class="btn btn-confirm" data-dismiss="modal" onclick="deleteSection()">Confirmar</button>
+				</div>
+			</div>
+		</div>
+	</div>	
 </div>
+<script>
+	var section = null;
+
+	function selectSection(param) {
+		this.section = param;
+	}
+
+	function deleteSection() {
+		var sectionDelete = '#delete-'+section;
+		document.querySelector(sectionDelete).submit();
+	}
+</script>
+

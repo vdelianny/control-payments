@@ -13,12 +13,16 @@
 				<form action="/sections/new-section" method="POST">
 					<div class="form-group">
 						<label for="nameSelect">Sección</label>
-					    <select class="custom-select" name="name" id="nameSelect">
-							<option value="A">A</option>
-					    	<option value="B">B</option>
-					    	<option value="C">C</option>
-					    	<option value="D">D</option>
-					    </select>
+					    <input
+					    	class="form-control"
+					    	id="nameSelect"
+					    	maxlength="1"
+					    	name="name"
+					    	pattern="[A-Za-z]"
+					    	placeholder="Ej: A-Z"
+					    	required
+					    	type="text"
+			    		>
 					</div>
 					<div class="form-group">
 						<label for="gradeSelect">Grado</label>

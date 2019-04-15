@@ -107,7 +107,8 @@ router.post('/upload', upload.single('batch'), function (req, res, next) {
 });
 
 router.post('/sections/new-section', async (req, res) => {
-	const { name } = req.body;
+	var { name } = req.body;
+	name = name.toUpperCase();
 	const grade = await Grade.findOne({number: req.body.grade});
 	const newSection = new Section({ name, grade: grade._id });
 	const sectionVerify = await Section.findOne({ name: newSection.name, grade: newSection.grade });
